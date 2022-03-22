@@ -1,34 +1,108 @@
 openapi: "3.0.0"
 info:
-  description: "API Description"
+  description: ""
   version: "1.0.0"
-  title: "Amtsname: API Name"
+  title: "hochwasserzentrale.de API"
 
 servers:
-  - url: "https://warnung.bund.de/api31"
+  - url: "https://www.hochwasserzentralen.de"
 
 paths:
-  /dashboard/{AGS}.json:
-    get:
-      summary: Name des Endpoints
+  /webservices/get_infospegel.php:
+    post:
+      summary: Infos von einem Pegel.
       responses:
-        '200':
-            description: OK
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/Result'
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Result"
+      requestBody:
+        required: false
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                pgnr: # <!--- form field name
+                  type: string
+                  example: "HE_24820206"
+                  description: Pegelname
+
+
+  /webservices/get_infosbundesland.php:
+    post:
+      summary: Infos von einem Bundesland.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Result"
+      requestBody:
+        required: false
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                id: # <!--- form field name
+                  type: string
+                  example: "HE"
+                  description: Bundesland (kurz)
+
+
+  /webservices/get_lagepegel.php:
+    get:
+      summary: Lage der Pegel mit Pegelnummern
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LagePegel"
+
+  /vhosts/geojson/bundesland.{version}.geojson:
+    get:
+      summary: Geojson der Bundesländer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Result"
       parameters:
         - in: path
+          name: version
           required: true
-          name: AGS
+          example: "20211130"
           schema:
             type: string
-          description: Amtlicher Gebietsschlüssel - kann z.B. von [hier](https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2021-07-31/download/Regionalschl_ssel_2021-07-31.json) bezogen werden. Die Letzten 7 Stellen müssen dabei mit "0000000" ersetzt werden, weil die Daten nur auf [Kreisebene](https://de.wikipedia.org/wiki/Amtlicher_Gemeindeschl%C3%BCssel) bereitgestellt werden. 
-          example: "example-parameter"
 
-          
-components: 
-    schemas:
-      Result:
-        type: string
+components:
+  schemas:
+    Result:
+      type: string
+
+    LagePegel:
+      type: array
+      items:
+        type: object
+        properties:
+          HW:
+            type: array
+            example: ["-1", "-1", "-1"]
+          LAT:
+            type: array
+            example: ["47.1601","53.9014","51.1248"]
+          LON:
+            type: array
+            example: ["7.5470","9.8853","10.1968"]
+          PGNR:
+            type: array
+            example: ["CH_2155","SH_114289","HE_41700105"]
+
