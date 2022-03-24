@@ -25,7 +25,7 @@ paths:
             schema:
               type: object
               properties:
-                pgnr: # <!--- form field name
+                pgnr:
                   type: string
                   example: "HE_24820206"
                   description: Pegelname
@@ -48,7 +48,7 @@ paths:
             schema:
               type: object
               properties:
-                id: # <!--- form field name
+                id:
                   type: string
                   example: "HE"
                   description: Bundesland (kurz)
