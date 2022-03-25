@@ -12,9 +12,7 @@ Die Urheberrechte an den veröffentlichten Daten liegen nach [Auskunft der Betre
 Liefert über einen POST-request Infos zu einem Pegel.
 
 
-**Body-Parameter:** *pgnr* (Optional)
-
-Pegelname, z.B. HE_24820206
+**Body-Parameter:** *pgnr* (Optional): Pegelname, z.B. HE_24820206
 
 
 ## get_infosbundesland.php
@@ -24,9 +22,7 @@ Pegelname, z.B. HE_24820206
 Liefert über einen POST-request Infos zu einem Bundesland. 
 
  
-**Body-Parameter:** *id* (Optional)
-
-Bundesland-Kürzel, z.B. HE.
+**Body-Parameter:** *id* (Optional): Bundesland-Kürzel, z.B. HE.
 
 
 ## get_lagepegel.php
