@@ -1,6 +1,8 @@
 openapi: "3.0.0"
 info:
-  description: ""
+  description: "Das Länderübergreifendes Hochwasserportal (LHP) bietet auf https://www.hochwasserzentralen.de über die hier dokumentierte API Informationen zur Hochwassersituation in Deutschland an. Betreiber des LHP sind das Bayerische Landesamt für Umwelt (LfU) und die Landesanstalt für Umwelt Baden-Württemberg (LUBW).
+
+Die Urheberrechte an den veröffentlichten Daten liegen nach [Auskunft der Betreiber](https://www.hochwasserzentralen.de/impressum) bei der für das jeweilige Bundesland zuständigen Hochwasserzentrale bzw. beim jeweiligen Pegelbetreiber."
   version: "1.0.0"
   title: "hochwasserzentrale.de API"
 
@@ -10,7 +12,7 @@ servers:
 paths:
   /webservices/get_infospegel.php:
     post:
-      summary: Infos von einem Pegel.
+      summary: Infos zu einem Pegel.
       responses:
         "200":
           description: OK
@@ -28,12 +30,12 @@ paths:
                 pgnr:
                   type: string
                   example: "HE_24820206"
-                  description: Pegelname
+                  description: Pegelnummer
 
 
   /webservices/get_infosbundesland.php:
     post:
-      summary: Infos von einem Bundesland.
+      summary: Infos zu einem Bundesland.
       responses:
         "200":
           description: OK
@@ -51,7 +53,7 @@ paths:
                 id:
                   type: string
                   example: "HE"
-                  description: Bundesland (kurz)
+                  description: Bundeslandkürzel
 
 
   /webservices/get_lagepegel.php:
@@ -95,14 +97,22 @@ components:
         properties:
           HW:
             type: array
+            items:
+              type: string
             example: ["-1", "-1", "-1"]
           LAT:
             type: array
+            items:
+              type: string
             example: ["47.1601","53.9014","51.1248"]
           LON:
             type: array
+            items:
+              type: string
             example: ["7.5470","9.8853","10.1968"]
           PGNR:
             type: array
+            items:
+              type: string
             example: ["CH_2155","SH_114289","HE_41700105"]
 
