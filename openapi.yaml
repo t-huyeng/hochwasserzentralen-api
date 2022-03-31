@@ -4,7 +4,7 @@ info:
 
 Die Urheberrechte an den veröffentlichten Daten liegen nach [Auskunft der Betreiber](https://www.hochwasserzentralen.de/impressum) bei der für das jeweilige Bundesland zuständigen Hochwasserzentrale bzw. beim jeweiligen Pegelbetreiber."
   version: "1.0.0"
-  title: "hochwasserzentrale.de API"
+  title: "hochwasserzentralen.de API"
 
 servers:
   - url: "https://www.hochwasserzentralen.de"
