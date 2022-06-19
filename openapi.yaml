@@ -1,7 +1,7 @@
 openapi: "3.0.0"
 info:
   description:
-    "Das Länderübergreifendes Hochwasserportal (LHP) bietet auf https://www.hochwasserzentralen.de über die hier dokumentierte API Informationen zur Hochwassersituation in Deutschland an. Betreiber des LHP sind das Bayerische Landesamt für Umwelt (LfU) und die Landesanstalt für Umwelt Baden-Württemberg (LUBW).
+    "Das Länderübergreifendes Hochwasserportal (LHP) bietet auf https://www.hochwasserzentralen.de über die hier dokumentierte API Informationen zur Hochwassersituation in Deutschland an. Betreiber des LHP sind das Bayerische Landesamt für Umwelt (LfU) und die Landesanstalt für Umwelt Baden-Württemberg (LUBW). 
     Die Urheberrechte an den veröffentlichten Daten liegen nach [Auskunft der Betreiber](https://www.hochwasserzentralen.de/impressum) bei der für das jeweilige Bundesland zuständigen Hochwasserzentrale bzw. beim jeweiligen Pegelbetreiber."
   version: "1.0.0"
   title: "hochwasserzentralen.de API"
@@ -402,3 +402,4 @@ components:
                       items:
                         type: array
                       example: [ [ [ 10.1911, 53.723 ], [ 10.1821, 53.71 ], [ 10.1818, 53.7096 ], [ 10.1588, 53.6908 ], [ 10.1428, 53.6798 ],....]]
+

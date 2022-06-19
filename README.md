@@ -19,18 +19,24 @@ Liefert über einen POST-request Infos zu einem Pegel.
 
 **URL:** https://www.hochwasserzentralen.de/webservices/get_infosbundesland.php
 
-Liefert über einen POST-request Infos zu einem Bundesland. 
+Liefert über einen POST-request Infos zu einem Bundesland.
 
- 
+
 **Body-Parameter:** *id* (Optional): Bundesland-Kürzel, z.B. HE.
 
+## get_infosbundesland.php
 
+**URL:** https://www.hochwasserzentralen.de/webservices/get_infosbundesland.php
+
+Liefert über einen GET-request Infos zu allen Bundesländern sowie die angeschlossenen Gebiete (`bundesland_extra`).
+
+
+**Body-Parameter:** *id* (Optional): Bundesland-Kürzel, z.B. HE.
 ## get_lagepegel.php
 
 **URL:** https://www.hochwasserzentralen.de/webservices/get_lagepegel.php
 
 Liefert über einen GET-request Infos zur Lage der Pegel mit Pegelnummern.
-
 
 
 ## bundesland.{version}.geojson
