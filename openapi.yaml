@@ -1,25 +1,35 @@
 openapi: "3.0.0"
 info:
-  description: "Das Länderübergreifendes Hochwasserportal (LHP) bietet auf https://www.hochwasserzentralen.de über die hier dokumentierte API Informationen zur Hochwassersituation in Deutschland an. Betreiber des LHP sind das Bayerische Landesamt für Umwelt (LfU) und die Landesanstalt für Umwelt Baden-Württemberg (LUBW).
-
-Die Urheberrechte an den veröffentlichten Daten liegen nach [Auskunft der Betreiber](https://www.hochwasserzentralen.de/impressum) bei der für das jeweilige Bundesland zuständigen Hochwasserzentrale bzw. beim jeweiligen Pegelbetreiber."
+  description:
+    "Das Länderübergreifendes Hochwasserportal (LHP) bietet auf https://www.hochwasserzentralen.de über die hier dokumentierte API Informationen zur Hochwassersituation in Deutschland an. Betreiber des LHP sind das Bayerische Landesamt für Umwelt (LfU) und die Landesanstalt für Umwelt Baden-Württemberg (LUBW).
+    Die Urheberrechte an den veröffentlichten Daten liegen nach [Auskunft der Betreiber](https://www.hochwasserzentralen.de/impressum) bei der für das jeweilige Bundesland zuständigen Hochwasserzentrale bzw. beim jeweiligen Pegelbetreiber."
   version: "1.0.0"
-  title: "hochwasserzentrale.de API"
+  title: "hochwasserzentralen.de API"
+  contact:
+    name: "Länderübergreifendes Hochwasser Portal"
+    url: "https://www.hochwasserzentralen.de/kontakte"
 
 servers:
   - url: "https://www.hochwasserzentralen.de"
+tags:
+  - name: pegel
+  - name: bundesland
 
 paths:
   /webservices/get_infospegel.php:
     post:
       summary: Infos zu einem Pegel.
+      description: Rückgabe von Informationen zu einem Pegelbetreiber.
+      operationId: getPegelInfosByPegelnummer
+      tags:
+        - pegel
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Result"
+                $ref: "#/components/schemas/InfosPegel"
       requestBody:
         required: false
         content:
@@ -36,13 +46,17 @@ paths:
   /webservices/get_infosbundesland.php:
     post:
       summary: Infos zu einem Bundesland.
+      description: Rückgabe von Informationen zu einem Bundesland.
+      operationId: getBundeslandInfosByBundesland
+      tags:
+        - bundesland
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Result"
+                $ref: "#/components/schemas/InfosBundesland"
       requestBody:
         required: false
         content:
@@ -54,11 +68,27 @@ paths:
                   type: string
                   example: "HE"
                   description: Bundeslandkürzel
-
+    get:
+      summary: Infos zu allen Bundesländern und angeschlossen Gebieten.
+      description: Rückgabe von Informationen zu einem Bundesland.
+      operationId: getAllBundeslandInfos
+      tags:
+        - bundesland
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InfosBundeslaender"
 
   /webservices/get_lagepegel.php:
     get:
       summary: Lage der Pegel mit Pegelnummern
+      description: Rückgabe von allen Pegeln und deren Lage.
+      operationId: getAllLagePegel
+      tags:
+        - pegel
       responses:
         "200":
           description: OK
@@ -70,13 +100,17 @@ paths:
   /vhosts/geojson/bundesland.{version}.geojson:
     get:
       summary: Geojson der Bundesländer
+      description: Rückgabe von Geojson für die Bundesländer und die angeschlossenen Regionen.
+      operationId: getBundeslandGeojson
+      tags:
+        - bundesland
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Result"
+                $ref: "#/components/schemas/BundeslandGeojson"
       parameters:
         - in: path
           name: version
@@ -87,8 +121,218 @@ paths:
 
 components:
   schemas:
-    Result:
-      type: string
+    InfosPegel:
+      type: object
+      properties:
+        PN:
+          type: string
+          example: "Ruppertsburg"
+        GW:
+          type: string
+          example: "Horloff"
+        URL_PEGEL:
+          type: string
+          example: "http:\/\/static.hlug.de\/medien\/wasser\/pegelportal\/pegelseite.php?pn=24820206"
+        HW:
+          type: string
+          example: "0"
+        HW_TXT:
+          type: string
+          example: "Kein Hochwasser"
+        ZEIT:
+          type: string
+          example: "Heute, 11:30 Uhr"
+        W:
+          type: string
+          description: "Wasserstand"
+          example: "12 cm"
+        Q:
+          type: string
+          example: ""
+        HINT:
+          type: string
+          example: ""
+        URL_LAND:
+          type: string
+          example: "https:\/\/www.hochwasser-hessen.de\/"
+        ID_LAND:
+          type: string
+          example: "HE"
+
+    InfosBundesland:
+      type: object
+      properties:
+        ID:
+          type: array
+          items:
+            type: string
+          example: ["HE"]
+        NAME:
+          type: array
+          items:
+            type: string
+          example: ["Hessen"]
+        AKTIV:
+          type: array
+          items:
+            type: string
+          example: ["0"]
+        URL:
+          type: array
+          items:
+            type: string
+          example: ["https:\/\/www.hochwasser-hessen.de\/"]
+        KINFO:
+          type: array
+          items:
+            type: string
+          example: ["Zurzeit liegen keine Hochwassermitteilungen des HLNUG vor."]
+        WARN:
+          type: array
+          items:
+            type: string
+          example: ["-1"]
+        BERICHT:
+          type: array
+          items:
+            type: string
+          example: ["0"]
+        ANZP:
+          type: array
+          items:
+            type: string
+          example: ["119"]
+        ALLHW:
+          type: array
+          items:
+            type: integer
+          example: [0]
+        ANZK1:
+          type: array
+          items:
+            type: string
+          example: ["0"]
+        ANZK2:
+          type: array
+          items:
+            type: string
+          example: ["0"]
+        ANZK3:
+          type: array
+          items:
+            type: string
+          example: ["0"]
+        ANZK4:
+          type: array
+          items:
+            type: string
+          example: ["0"]
+        ZPD:
+          type: array
+          items:
+            type: string
+          example: ["heute, 12:45 Uhr"]
+        BA:
+          type: array
+          items:
+            type: string
+          example: ["kurzinfo"]
+        LANDTYP:
+          type: array
+          items:
+            type: string
+          example: ["bundesland"]
+
+
+    InfosBundeslaender:
+      type: object
+      properties:
+        ID:
+          type: array
+          items:
+            type: string
+          example: ["BW","BY","BE","BB","HB","HH","HE","MV","NI","NW","RP","SL","SN","ST","SH","TH","FMM","FRS","LU","NL","NK","OK","CH","CZ"]
+        NAME:
+          type: array
+          items:
+            type: string
+          example: ["Baden-W\u00fcrttemberg","Bayern","Berlin","Brandenburg","Bremen","Hamburg","Hessen","Mecklenburg-Vorpommern","Niedersachsen","Nordrhein-Westfalen","Rheinland-Pfalz","Saarland","Sachsen","Sachsen-Anhalt","Schleswig-Holstein","Th\u00fcringen","Frankreich: Maas-Mosel","Frankreich: Rhein-Saar","Luxemburg","Nederland","Nordseek\u00fcste","Ostseek\u00fcste","Schweiz","Tschechien"]
+        AKTIV:
+          type: array
+          items:
+            type: string
+          example: ["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","-1","0","0","0","0"]
+        URL:
+          type: array
+          items:
+            type: string
+          example: ["https:\/\/www.hvz.baden-wuerttemberg.de","https:\/\/www.hnd.bayern.de","https:\/\/wasserportal.berlin.de","https:\/\/pegelportal.brandenburg.de\/","https:\/\/www.bauumwelt.bremen.de\/sixcms\/detail.php?gsid=bremen213.c.31626.de","https:\/\/www.wabiha.de\/karte.html","https:\/\/www.hochwasser-hessen.de\/","https:\/\/pegelportal-mv.de\/pegel-mv","https:\/\/www.pegelonline.nlwkn.niedersachsen.de\/Start","https:\/\/luadb.it.nrw.de\/LUA\/hygon\/pegel.php?karte=nrw","https:\/\/www.hochwasser-rlp.de\/rheinlandpfalz","https:\/\/www.saarland.de\/muv\/DE\/portale\/wasser\/informationen\/hochwassermeldedienst\/wasserstaende_warnlage\/wasserstaende_warnlage_node.html","https:\/\/www.umwelt.sachsen.de\/umwelt\/infosysteme\/hwims\/portal\/web\/wasserstand-uebersicht","https:\/\/hochwasservorhersage.sachsen-anhalt.de","https:\/\/www.umweltdaten.landsh.de\/public\/hsi\/","https:\/\/hnz.thueringen.de\/hw-portal","https:\/\/www.vigicrues.gouv.fr\/niveau2.php?CdEntVigiCru=2","https:\/\/www.vigicrues.gouv.fr\/niveau2.php?CdEntVigiCru=3","https:\/\/www.inondations.lu","https:\/\/waterinfo.rws.nl\/#!\/kaart\/waterhoogte\/","http:\/\/www.bsh.de\/wasserstand-nordsee","https:\/\/www.bsh.de\/wasserstand-ostsee","https:\/\/www.hydrodaten.admin.ch\/de","https:\/\/hydro.chmi.cz\/hpps\/index.php?lng=ENG"]
+        KINFO:
+          type: array
+          items:
+            type: string
+          example: ["An den Fl\u00fcssen in Baden-W\u00fcrttemberg besteht derzeit keine \u00fcberregionale Hochwassergefahr. Hinweis: F\u00fcr lokale \u00dcberschwemmungen, wie sie z.B. durch \u00f6rtlich begrenzte Starkregen (Gewitter) auftreten, k\u00f6nnen keine Vorhersagen erstellt werden.","Zurzeit liegen kein Hochwasserlagebericht und keine Warnungen der Wasserwirtschafts\u00e4mter vor.","Stand 17.02.22, 16:20 Uhr:<\/i>  Zurzeit liegen keine Hochwasserwarnungen oder -informationen vor.","Zurzeit liegen keine Hochwasserwarnungen oder -informationen vor.","Zurzeit liegt keine Sturmflutwarnung oder Hochwasserinformation vor.","Zurzeit liegt kein Hochwasserlagebericht vor.","Zurzeit liegen keine Hochwassermitteilungen des HLNUG vor.","Zurzeit liegen keine HW-Informationen- und Warnungen vor","Zurzeit liegt keine Sturmflutwarnung oder Hochwasserinformation vor","Zurzeit liegt kein Hochwasserlagebericht vor","Zurzeit liegen keine Hochwasserberichte oder -informationen vor.","Zurzeit liegt kein Hochwasserlagebericht vor.","Zurzeit liegen keine Hochwasserwarnungen vor. Hinweis: F\u00fcr lokale \u00dcberschwemmungen und \u00dcberflutungen, wie sie z.B. durch \u00f6rtlich begrenzte Starkregen (Gewitter) auftreten, k\u00f6nnen keine ortsscharfen Warnungen und Prognosen erstellt werden.","Es liegen keine Hochwasserwarnungen und Hochwasserinformationen vor.","Stand 27.02.22, 15:08 Uhr:<\/i>  Zurzeit liegt keine Sturmflutwarnung oder Hochwasserinformation vor.","Stand heute, 13:15 Uhr:<\/i>  In Th\u00fcringen besteht derzeit keine \u00fcberregionale Hochwassergefahr. Hinweis: F\u00fcr lokale \u00dcberschwemmungen, die z. B. durch \u00f6rtlich begrenzte Starkniederschl\u00e4ge oft als Folge von Gewittern entstehen, k\u00f6nnen keine Vorhersagen erstellt werden. Bitte achten Sie auf entsprechende Unwetterwarnungen des DWD.","Zurzeit liegt keine Hochwasserwarnung vor.","Zurzeit liegt keine Hochwasserwarnung vor.","Zurzeit liegt keine Hochwasserwarnung vor.","","Stand heute, 07:20 Uhr:<\/i>  Derzeit liegen im Hochwasserportal keine Sturmflutwarnungen f\u00fcr die Nordseek\u00fcste vor.","Derzeit liegen im Hochwasserportal keine Sturmflutwarnungen f\u00fcr die Ostseek\u00fcste vor.","Lagebericht nicht aktiv","Zurzeit liegen keine Hochwasserwarnungen vor."]
+        WARN:
+          type: array
+          items:
+            type: string
+          example: ["0","0","0","0","0","-1","-1","-1","0","-1","0","-1","0","0","0","0","0","0","0","0","0","0","0","0"]
+        BERICHT:
+          type: array
+          items:
+            type: string
+          example: ["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"]
+        ANZP:
+          type: array
+          items:
+            type: string
+            nullable: true
+          example: ["170","241","2","35","6","3","119","14","99","86","86","7","106","47","103","53","7","6","6","126",null,null,"84","472"]
+        ALLHW:
+          type: array
+          items:
+            type: integer
+          example: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+        ANZK1:
+          type: array
+          items:
+            type: string
+            nullable: true
+          example: ["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0",null,null,"0","0"]
+        ANZK2:
+          type: array
+          items:
+            type: string
+            nullable: true
+          example: ["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0",null,null,"0","0"]
+        ANZK3:
+          type: array
+          items:
+            type: string
+            nullable: true
+          example: ["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0",null,null,"0","0"]
+        ANZK4:
+          type: array
+          items:
+            type: string
+            nullable: true
+          example: ["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0",null,null,"0","0"]
+        ZPD:
+          type: array
+          items:
+            type: string
+          example: ["heute, 13:20 Uhr","heute, 13:24 Uhr","heute, 13:23 Uhr","heute, 13:20 Uhr","heute, 13:15 Uhr","heute, 13:18 Uhr","heute, 13:05 Uhr","heute, 13:15 Uhr","heute, 13:23 Uhr","heute, 13:22 Uhr","heute, 13:24 Uhr","heute, 13:15 Uhr","heute, 13:24 Uhr","heute, 13:19 Uhr","heute, 13:20 Uhr","heute, 13:15 Uhr","heute, 10:50 Uhr","heute, 10:50 Uhr","heute, 13:21 Uhr","heute, 12:21 Uhr","heute, 13:04 Uhr","heute, 13:20 Uhr","heute, 13:15 Uhr","heute, 13:15 Uhr"]
+        BA:
+          type: array
+          items:
+            type: string
+          example: ["warnungen","warnungen","warnungen","warnungen","warnungen","kurzinfo","kurzinfo","kurzinfo","warnungen","kurzinfo","warnungen","kurzinfo","warnungen","warnungen","warnungen","warnungen","warnungen","warnungen","warnungen","warnungen","kein_alert","warnungen","warnungen","warnungen"]
+        LANDTYP:
+          type: array
+          items:
+            type: string
+          example: ["bundesland","bundesland","bundesland","bundesland","bundesland","bundesland","bundesland","bundesland","bundesland","bundesland","bundesland","bundesland","bundesland","bundesland","bundesland","bundesland","bundesland_extra","bundesland_extra","bundesland_extra","bundesland_extra","bundesland_extra","bundesland_extra","bundesland_extra","bundesland_extra"]
+
 
     LagePegel:
       type: array
@@ -116,3 +360,45 @@ components:
               type: string
             example: ["CH_2155","SH_114289","HE_41700105"]
 
+    BundeslandGeojson:
+      type: array
+      items:
+        type: object
+        properties:
+          type:
+            type: string
+            example: "FeatureCollection"
+          name:
+            type: string
+            example: "bundesland"
+          fetures:
+            type: array
+            items:
+              type: object
+              properties:
+                type:
+                  type: string
+                  example: "Feature"
+                properties:
+                  type: object
+                  properties:
+                    ID:
+                      type: string
+                      example: "HH"
+                    ID_LANDGRENZ:
+                      type: string
+                      example: "HH"
+                    NAME:
+                      type: string
+                      example: "Hamburg"
+                geometry:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      example: "Polygon"
+                    coordinates:
+                      type: array
+                      items:
+                        type: array
+                      example: [ [ [ 10.1911, 53.723 ], [ 10.1821, 53.71 ], [ 10.1818, 53.7096 ], [ 10.1588, 53.6908 ], [ 10.1428, 53.6798 ],....]]
