@@ -6,6 +6,7 @@ README.md
 create_doc.py
 docs/DefaultApi.md
 docs/LagePegel.md
+docs/LagePegelInner.md
 git_push.sh
 hochwasserzentralen/__init__.py
 hochwasserzentralen/api/__init__.py
@@ -16,6 +17,7 @@ hochwasserzentralen/configuration.py
 hochwasserzentralen/exceptions.py
 hochwasserzentralen/model/__init__.py
 hochwasserzentralen/model/lage_pegel.py
+hochwasserzentralen/model/lage_pegel_inner.py
 hochwasserzentralen/model_utils.py
 hochwasserzentralen/models/__init__.py
 hochwasserzentralen/rest.py
@@ -29,4 +31,5 @@ test-requirements.txt
 test/__init__.py
 test/test_default_api.py
 test/test_lage_pegel.py
+test/test_lage_pegel_inner.py
 tox.ini

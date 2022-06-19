@@ -10,3 +10,4 @@
 # sys.setrecursionlimit(n)
 
 from deutschland.hochwasserzentralen.model.lage_pegel import LagePegel
+from deutschland.hochwasserzentralen.model.lage_pegel_inner import LagePegelInner

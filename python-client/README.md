@@ -89,6 +89,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [LagePegel](docs/LagePegel.md)
+ - [LagePegelInner](docs/LagePegelInner.md)
 
 
 ## Documentation For Authorization

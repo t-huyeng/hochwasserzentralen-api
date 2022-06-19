@@ -16,12 +16,9 @@ from deutschland.hochwasserzentralen.model.lage_pegel_inner import LagePegelInne
 
 from deutschland import hochwasserzentralen
 
-globals()["LagePegelInner"] = LagePegelInner
-from deutschland.hochwasserzentralen.model.lage_pegel import LagePegel
 
-
-class TestLagePegel(unittest.TestCase):
-    """LagePegel unit test stubs"""
+class TestLagePegelInner(unittest.TestCase):
+    """LagePegelInner unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +26,10 @@ class TestLagePegel(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testLagePegel(self):
-        """Test LagePegel"""
+    def testLagePegelInner(self):
+        """Test LagePegelInner"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = LagePegel()  # noqa: E501
+        # model = LagePegelInner()  # noqa: E501
         pass
 
 

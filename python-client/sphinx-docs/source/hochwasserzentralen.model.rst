@@ -12,6 +12,14 @@ hochwasserzentralen.model.lage\_pegel module
    :undoc-members:
    :show-inheritance:
 
+hochwasserzentralen.model.lage\_pegel\_inner module
+---------------------------------------------------
+
+.. automodule:: hochwasserzentralen.model.lage_pegel_inner
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 
