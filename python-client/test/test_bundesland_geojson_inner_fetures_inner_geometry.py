@@ -12,16 +12,15 @@
 import sys
 import unittest
 
-from deutschland.hochwasserzentralen.model.lage_pegel_inner import LagePegelInner
+from deutschland.hochwasserzentralen.model.bundesland_geojson_inner_fetures_inner_geometry import (
+    BundeslandGeojsonInnerFeturesInnerGeometry,
+)
 
 from deutschland import hochwasserzentralen
 
-globals()["LagePegelInner"] = LagePegelInner
-from deutschland.hochwasserzentralen.model.lage_pegel import LagePegel
 
-
-class TestLagePegel(unittest.TestCase):
-    """LagePegel unit test stubs"""
+class TestBundeslandGeojsonInnerFeturesInnerGeometry(unittest.TestCase):
+    """BundeslandGeojsonInnerFeturesInnerGeometry unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +28,10 @@ class TestLagePegel(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testLagePegel(self):
-        """Test LagePegel"""
+    def testBundeslandGeojsonInnerFeturesInnerGeometry(self):
+        """Test BundeslandGeojsonInnerFeturesInnerGeometry"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = LagePegel()  # noqa: E501
+        # model = BundeslandGeojsonInnerFeturesInnerGeometry()  # noqa: E501
         pass
 
 
