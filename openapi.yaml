@@ -1,6 +1,6 @@
 openapi: "3.0.0"
 info:
-  description:
+  description: |
     "Das Länderübergreifendes Hochwasserportal (LHP) bietet auf https://www.hochwasserzentralen.de über die hier dokumentierte API Informationen zur Hochwassersituation in Deutschland an. Betreiber des LHP sind das Bayerische Landesamt für Umwelt (LfU) und die Landesanstalt für Umwelt Baden-Württemberg (LUBW). 
     Die Urheberrechte an den veröffentlichten Daten liegen nach [Auskunft der Betreiber](https://www.hochwasserzentralen.de/impressum) bei der für das jeweilige Bundesland zuständigen Hochwasserzentrale bzw. beim jeweiligen Pegelbetreiber."
   version: "1.0.0"
@@ -11,6 +11,7 @@ info:
 
 servers:
   - url: "https://www.hochwasserzentralen.de"
+
 tags:
   - name: pegel
   - name: bundesland
@@ -132,7 +133,7 @@ components:
           example: "Horloff"
         URL_PEGEL:
           type: string
-          example: "http:\/\/static.hlug.de\/medien\/wasser\/pegelportal\/pegelseite.php?pn=24820206"
+          example: "http://static.hlug.de/medien/wasser/pegelportal/pegelseite.php?pn=24820206"
         HW:
           type: string
           example: "0"
