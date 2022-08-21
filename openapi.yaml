@@ -401,5 +401,8 @@ components:
                       type: array
                       items:
                         type: array
+                        items:
+                          type: integer
+                          example: [ 10.1911, 53.723 ]
                       example: [ [ [ 10.1911, 53.723 ], [ 10.1821, 53.71 ], [ 10.1818, 53.7096 ], [ 10.1588, 53.6908 ], [ 10.1428, 53.6798 ],....]]
 
