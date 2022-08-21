@@ -1,5 +1,5 @@
 """
-    hochwasserzentrale.de API
+    hochwasserzentralen.de API
 
     Das Länderübergreifendes Hochwasserportal (LHP) bietet auf https://www.hochwasserzentralen.de über die hier dokumentierte API Informationen zur Hochwassersituation in Deutschland an. Betreiber des LHP sind das Bayerische Landesamt für Umwelt (LfU) und die Landesanstalt für Umwelt Baden-Württemberg (LUBW). Die Urheberrechte an den veröffentlichten Daten liegen nach [Auskunft der Betreiber](https://www.hochwasserzentralen.de/impressum) bei der für das jeweilige Bundesland zuständigen Hochwasserzentrale bzw. beim jeweiligen Pegelbetreiber.  # noqa: E501
 
@@ -110,7 +110,9 @@ class ApiException(OpenApiException):
 
     def __str__(self):
         """Custom error messages for exception"""
-        error_message = "({0})\n" "Reason: {1}\n".format(self.status, self.reason)
+        error_message = "Status Code: {0}\n" "Reason: {1}\n".format(
+            self.status, self.reason
+        )
         if self.headers:
             error_message += "HTTP response headers: {0}\n".format(self.headers)
 

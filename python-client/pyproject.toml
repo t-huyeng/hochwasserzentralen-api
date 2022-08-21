@@ -2,7 +2,7 @@
 [tool.poetry]
 name = "de-hochwasserzentralen"
 version = "0.1.0"
-description = "hochwasserzentrale.de API"
+description = "hochwasserzentralen.de API"
 keywords = ["OpenAPI", "OpenAPI-Generator", "hochwasserzentralen", "App", "API"]
 homepage = "https://github.com/bundesAPI/hochwasserzentralen-api"
 authors = ["BundesAPI <kontakt@bund.dev>"]

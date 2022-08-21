@@ -1,10 +1,10 @@
-# LagePegel
+# BundeslandGeojson
 
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | [**[LagePegelInner]**](LagePegelInner.md) |  | 
+**value** | [**[BundeslandGeojsonInner]**](BundeslandGeojsonInner.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,5 +1,5 @@
 """
-    hochwasserzentrale.de API
+    hochwasserzentralen.de API
 
     Das Länderübergreifendes Hochwasserportal (LHP) bietet auf https://www.hochwasserzentralen.de über die hier dokumentierte API Informationen zur Hochwassersituation in Deutschland an. Betreiber des LHP sind das Bayerische Landesamt für Umwelt (LfU) und die Landesanstalt für Umwelt Baden-Württemberg (LUBW). Die Urheberrechte an den veröffentlichten Daten liegen nach [Auskunft der Betreiber](https://www.hochwasserzentralen.de/impressum) bei der für das jeweilige Bundesland zuständigen Hochwasserzentrale bzw. beim jeweiligen Pegelbetreiber.  # noqa: E501
 
@@ -11,45 +11,31 @@
 
 import unittest
 
-from deutschland.hochwasserzentralen.api.default_api import DefaultApi  # noqa: E501
+from deutschland.hochwasserzentralen.api.pegel_api import PegelApi  # noqa: E501
 
 from deutschland import hochwasserzentralen
 
 
-class TestDefaultApi(unittest.TestCase):
-    """DefaultApi unit test stubs"""
+class TestPegelApi(unittest.TestCase):
+    """PegelApi unit test stubs"""
 
     def setUp(self):
-        self.api = DefaultApi()  # noqa: E501
+        self.api = PegelApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
-    def test_vhosts_geojson_bundesland_version_geojson_get(self):
-        """Test case for vhosts_geojson_bundesland_version_geojson_get
-
-        Geojson der Bundesländer  # noqa: E501
-        """
-        pass
-
-    def test_webservices_get_infosbundesland_php_post(self):
-        """Test case for webservices_get_infosbundesland_php_post
-
-        Infos zu einem Bundesland.  # noqa: E501
-        """
-        pass
-
-    def test_webservices_get_infospegel_php_post(self):
-        """Test case for webservices_get_infospegel_php_post
-
-        Infos zu einem Pegel.  # noqa: E501
-        """
-        pass
-
-    def test_webservices_get_lagepegel_php_get(self):
-        """Test case for webservices_get_lagepegel_php_get
+    def test_get_all_lage_pegel(self):
+        """Test case for get_all_lage_pegel
 
         Lage der Pegel mit Pegelnummern  # noqa: E501
+        """
+        pass
+
+    def test_get_pegel_infos_by_pegelnummer(self):
+        """Test case for get_pegel_infos_by_pegelnummer
+
+        Infos zu einem Pegel.  # noqa: E501
         """
         pass
 

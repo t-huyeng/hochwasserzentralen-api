@@ -5,7 +5,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.default_api import DefaultApi
+#   from deutschland.hochwasserzentralen.api.bundesland_api import BundeslandApi
 #
 # or import this package, but before doing it, use:
 #
@@ -13,4 +13,5 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
-from deutschland.hochwasserzentralen.api.default_api import DefaultApi
+from deutschland.hochwasserzentralen.api.bundesland_api import BundeslandApi
+from deutschland.hochwasserzentralen.api.pegel_api import PegelApi
