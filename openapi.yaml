@@ -115,7 +115,7 @@ paths:
         "200":
           description: OK
           content:
-            application/geo+json:
+            application/json:
               schema:
                 $ref: "#/components/schemas/BundeslandGeojson"
 
