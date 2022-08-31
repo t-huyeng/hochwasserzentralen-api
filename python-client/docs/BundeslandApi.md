@@ -128,7 +128,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/geo+json
+ - **Accept**: application/json
 
 
 ### HTTP response details

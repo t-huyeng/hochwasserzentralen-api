@@ -104,7 +104,7 @@ class BundeslandApi(object):
                 "collection_format_map": {},
             },
             headers_map={
-                "accept": ["application/geo+json"],
+                "accept": ["application/json"],
                 "content_type": [],
             },
             api_client=api_client,
