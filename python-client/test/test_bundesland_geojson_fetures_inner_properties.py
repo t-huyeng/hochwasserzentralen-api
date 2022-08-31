@@ -12,15 +12,15 @@
 import sys
 import unittest
 
-from deutschland.hochwasserzentralen.model.bundesland_geojson_inner_fetures_inner_geometry import (
-    BundeslandGeojsonInnerFeturesInnerGeometry,
+from deutschland.hochwasserzentralen.model.bundesland_geojson_fetures_inner_properties import (
+    BundeslandGeojsonFeturesInnerProperties,
 )
 
 from deutschland import hochwasserzentralen
 
 
-class TestBundeslandGeojsonInnerFeturesInnerGeometry(unittest.TestCase):
-    """BundeslandGeojsonInnerFeturesInnerGeometry unit test stubs"""
+class TestBundeslandGeojsonFeturesInnerProperties(unittest.TestCase):
+    """BundeslandGeojsonFeturesInnerProperties unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestBundeslandGeojsonInnerFeturesInnerGeometry(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testBundeslandGeojsonInnerFeturesInnerGeometry(self):
-        """Test BundeslandGeojsonInnerFeturesInnerGeometry"""
+    def testBundeslandGeojsonFeturesInnerProperties(self):
+        """Test BundeslandGeojsonFeturesInnerProperties"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = BundeslandGeojsonInnerFeturesInnerGeometry()  # noqa: E501
+        # model = BundeslandGeojsonFeturesInnerProperties()  # noqa: E501
         pass
 
 

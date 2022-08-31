@@ -64,7 +64,7 @@ class BundeslandApi(object):
                 "collection_format_map": {},
             },
             headers_map={
-                "accept": ["application/json"],
+                "accept": ["text/html"],
                 "content_type": [],
             },
             api_client=api_client,
@@ -104,7 +104,7 @@ class BundeslandApi(object):
                 "collection_format_map": {},
             },
             headers_map={
-                "accept": ["application/json"],
+                "accept": ["application/geo+json"],
                 "content_type": [],
             },
             api_client=api_client,
@@ -142,7 +142,7 @@ class BundeslandApi(object):
                 "collection_format_map": {},
             },
             headers_map={
-                "accept": ["application/json"],
+                "accept": ["text/html"],
                 "content_type": ["application/x-www-form-urlencoded"],
             },
             api_client=api_client,
