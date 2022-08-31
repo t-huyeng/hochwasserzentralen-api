@@ -27,7 +27,7 @@ paths:
         "200":
           description: OK
           content:
-            application/json:
+            text/html:
               schema:
                 $ref: "#/components/schemas/InfosPegel"
       requestBody:
@@ -54,7 +54,7 @@ paths:
         "200":
           description: OK
           content:
-            application/json:
+            text/html:
               schema:
                 $ref: "#/components/schemas/InfosBundesland"
       requestBody:
@@ -78,7 +78,7 @@ paths:
         "200":
           description: OK
           content:
-            application/json:
+            text/html:
               schema:
                 $ref: "#/components/schemas/InfosBundeslaender"
 
@@ -93,7 +93,7 @@ paths:
         "200":
           description: OK
           content:
-            application/json:
+            text/html:
               schema:
                 $ref: "#/components/schemas/LagePegel"
 
@@ -104,13 +104,6 @@ paths:
       operationId: getBundeslandGeojson
       tags:
         - bundesland
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/BundeslandGeojson"
       parameters:
         - in: path
           name: version
@@ -118,6 +111,13 @@ paths:
           example: "20211130"
           schema:
             type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/BundeslandGeojson"
 
 components:
   schemas:
@@ -335,34 +335,30 @@ components:
 
 
     LagePegel:
-      type: array
-      items:
-        type: object
-        properties:
-          HW:
-            type: array
-            items:
-              type: string
-            example: ["-1", "-1", "-1"]
-          LAT:
-            type: array
-            items:
-              type: string
-            example: ["47.1601","53.9014","51.1248"]
-          LON:
-            type: array
-            items:
-              type: string
-            example: ["7.5470","9.8853","10.1968"]
-          PGNR:
-            type: array
-            items:
-              type: string
-            example: ["CH_2155","SH_114289","HE_41700105"]
+      type: object
+      properties:
+        HW:
+          type: array
+          items:
+            type: string
+          example: ["-1", "-1", "-1"]
+        LAT:
+          type: array
+          items:
+            type: string
+          example: ["47.1601","53.9014","51.1248"]
+        LON:
+          type: array
+          items:
+            type: string
+          example: ["7.5470","9.8853","10.1968"]
+        PGNR:
+          type: array
+          items:
+            type: string
+          example: ["CH_2155","SH_114289","HE_41700105"]
 
     BundeslandGeojson:
-      type: array
-      items:
         type: object
         properties:
           type:
