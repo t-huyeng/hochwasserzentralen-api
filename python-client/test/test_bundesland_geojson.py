@@ -12,13 +12,13 @@
 import sys
 import unittest
 
-from deutschland.hochwasserzentralen.model.bundesland_geojson_inner import (
-    BundeslandGeojsonInner,
+from deutschland.hochwasserzentralen.model.bundesland_geojson_fetures_inner import (
+    BundeslandGeojsonFeturesInner,
 )
 
 from deutschland import hochwasserzentralen
 
-globals()["BundeslandGeojsonInner"] = BundeslandGeojsonInner
+globals()["BundeslandGeojsonFeturesInner"] = BundeslandGeojsonFeturesInner
 from deutschland.hochwasserzentralen.model.bundesland_geojson import BundeslandGeojson
 
 

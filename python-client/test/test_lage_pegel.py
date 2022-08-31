@@ -12,12 +12,9 @@
 import sys
 import unittest
 
-from deutschland.hochwasserzentralen.model.lage_pegel_inner import LagePegelInner
+from deutschland.hochwasserzentralen.model.lage_pegel import LagePegel
 
 from deutschland import hochwasserzentralen
-
-globals()["LagePegelInner"] = LagePegelInner
-from deutschland.hochwasserzentralen.model.lage_pegel import LagePegel
 
 
 class TestLagePegel(unittest.TestCase):

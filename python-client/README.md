@@ -91,15 +91,13 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [BundeslandGeojson](docs/BundeslandGeojson.md)
- - [BundeslandGeojsonInner](docs/BundeslandGeojsonInner.md)
- - [BundeslandGeojsonInnerFeturesInner](docs/BundeslandGeojsonInnerFeturesInner.md)
- - [BundeslandGeojsonInnerFeturesInnerGeometry](docs/BundeslandGeojsonInnerFeturesInnerGeometry.md)
- - [BundeslandGeojsonInnerFeturesInnerProperties](docs/BundeslandGeojsonInnerFeturesInnerProperties.md)
+ - [BundeslandGeojsonFeturesInner](docs/BundeslandGeojsonFeturesInner.md)
+ - [BundeslandGeojsonFeturesInnerGeometry](docs/BundeslandGeojsonFeturesInnerGeometry.md)
+ - [BundeslandGeojsonFeturesInnerProperties](docs/BundeslandGeojsonFeturesInnerProperties.md)
  - [InfosBundeslaender](docs/InfosBundeslaender.md)
  - [InfosBundesland](docs/InfosBundesland.md)
  - [InfosPegel](docs/InfosPegel.md)
  - [LagePegel](docs/LagePegel.md)
- - [LagePegelInner](docs/LagePegelInner.md)
 
 
 ## Documentation For Authorization
