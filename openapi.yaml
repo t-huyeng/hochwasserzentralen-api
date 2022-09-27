@@ -110,12 +110,13 @@ paths:
           required: true
           example: "20211130"
           schema:
+            pattern: '([12]\d{3}(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01]))'
             type: string
       responses:
         "200":
           description: OK
           content:
-            application/json:
+            application/geo+json:
               schema:
                 $ref: "#/components/schemas/BundeslandGeojson"
 
