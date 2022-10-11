@@ -1,7 +1,6 @@
 on: [push]
 jobs:
   deutschland_generation:
-      if: github.repository_owner == 'bundesAPI'
       name: "Deutschland Generation"
       runs-on: ubuntu-latest
       strategy:
