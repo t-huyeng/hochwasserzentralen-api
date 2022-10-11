@@ -16,5 +16,5 @@ jobs:
         with:
           cmd: echo "base_url=$(yq -r .servers[].url openapi.yaml)" >> $GITHUB_ENV
 
-      - run: schemathesis run ./openapi.yaml --base-url "${{ env.base_url }}" --checks all
+      - run: schemathesis run ./openapi.yaml --base-url "${{ env.base_url }}" --checks all --hypothesis-phases=explicit
 
