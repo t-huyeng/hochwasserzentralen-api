@@ -119,6 +119,8 @@ paths:
             application/geo+json:
               schema:
                 $ref: "#/components/schemas/BundeslandGeojson"
+        "404":
+          description: Not Found
 
 components:
   schemas:
