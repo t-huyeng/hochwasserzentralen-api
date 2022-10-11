@@ -12,30 +12,6 @@ hochwasserzentralen.model.bundesland\_geojson module
    :undoc-members:
    :show-inheritance:
 
-hochwasserzentralen.model.bundesland\_geojson\_fetures\_inner module
---------------------------------------------------------------------
-
-.. automodule:: hochwasserzentralen.model.bundesland_geojson_fetures_inner
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-hochwasserzentralen.model.bundesland\_geojson\_fetures\_inner\_geometry module
-------------------------------------------------------------------------------
-
-.. automodule:: hochwasserzentralen.model.bundesland_geojson_fetures_inner_geometry
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-hochwasserzentralen.model.bundesland\_geojson\_fetures\_inner\_properties module
---------------------------------------------------------------------------------
-
-.. automodule:: hochwasserzentralen.model.bundesland_geojson_fetures_inner_properties
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 hochwasserzentralen.model.infos\_bundeslaender module
 -----------------------------------------------------
 

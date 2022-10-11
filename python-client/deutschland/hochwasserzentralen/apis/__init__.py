@@ -1,17 +1,3 @@
-# flake8: noqa
-
-# Import all APIs into this package.
-# If you have many APIs here with many many models used in each API this may
-# raise a `RecursionError`.
-# In order to avoid this, import only the API that you directly need like:
-#
-#   from deutschland.hochwasserzentralen.api.bundesland_api import BundeslandApi
-#
-# or import this package, but before doing it, use:
-#
-#   import sys
-#   sys.setrecursionlimit(n)
-
-# Import APIs into API package:
-from deutschland.hochwasserzentralen.api.bundesland_api import BundeslandApi
-from deutschland.hochwasserzentralen.api.pegel_api import PegelApi
+# do not import all endpoints into this module because that uses a lot of memory and stack frames
+# if you need the ability to import all endpoints then import them from
+# tags, paths, or path_to_api, or tag_to_api

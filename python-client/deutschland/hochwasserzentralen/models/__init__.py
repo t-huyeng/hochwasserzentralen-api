@@ -1,3 +1,5 @@
+# coding: utf-8
+
 # flake8: noqa
 
 # import all models into this package
@@ -10,15 +12,6 @@
 # sys.setrecursionlimit(n)
 
 from deutschland.hochwasserzentralen.model.bundesland_geojson import BundeslandGeojson
-from deutschland.hochwasserzentralen.model.bundesland_geojson_fetures_inner import (
-    BundeslandGeojsonFeturesInner,
-)
-from deutschland.hochwasserzentralen.model.bundesland_geojson_fetures_inner_geometry import (
-    BundeslandGeojsonFeturesInnerGeometry,
-)
-from deutschland.hochwasserzentralen.model.bundesland_geojson_fetures_inner_properties import (
-    BundeslandGeojsonFeturesInnerProperties,
-)
 from deutschland.hochwasserzentralen.model.infos_bundeslaender import InfosBundeslaender
 from deutschland.hochwasserzentralen.model.infos_bundesland import InfosBundesland
 from deutschland.hochwasserzentralen.model.infos_pegel import InfosPegel
