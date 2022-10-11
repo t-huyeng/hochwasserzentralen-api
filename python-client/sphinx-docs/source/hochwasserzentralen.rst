@@ -7,10 +7,10 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   hochwasserzentralen.api
    hochwasserzentralen.apis
    hochwasserzentralen.model
    hochwasserzentralen.models
+   hochwasserzentralen.paths
 
 Submodules
 ----------
@@ -39,18 +39,18 @@ hochwasserzentralen.exceptions module
    :undoc-members:
    :show-inheritance:
 
-hochwasserzentralen.model\_utils module
----------------------------------------
-
-.. automodule:: hochwasserzentralen.model_utils
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 hochwasserzentralen.rest module
 -------------------------------
 
 .. automodule:: hochwasserzentralen.rest
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+hochwasserzentralen.schemas module
+----------------------------------
+
+.. automodule:: hochwasserzentralen.schemas
    :members:
    :undoc-members:
    :show-inheritance:
